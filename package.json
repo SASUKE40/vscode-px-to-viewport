@@ -1,0 +1,82 @@
+{
+  "name": "px-to-viewport",
+  "displayName": "px to viewport",
+  "description": "Convert px to viewport",
+  "version": "0.0.1",
+  "publisher": "sasuke",
+  "engines": {
+    "vscode": "^1.19.0"
+  },
+  "categories": ["Other"],
+  "icon": "./icon.png",
+  "activationEvents": [
+    "onCommand:extension.pxToVw",
+    "onCommand:extension.vwToPx",
+    "onCommand:extension.pxToVwAndVwToPx"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SASUKE40/vscode-px-to-viewport"
+  },
+  "main": "./extension",
+  "contributes": {
+    "configuration": {
+      "title": "Px to viewport configuration",
+      "properties": {
+        "px-to-viewport.viewport-width": {
+          "type": "integer",
+          "default": 375,
+          "description": "The width of the viewport"
+        },
+        "px-to-viewport.only-change-first-ocurrence": {
+          "type": "boolean",
+          "default": false,
+          "description":
+            "Set value to only change first occurence of px/vw per selection."
+        },
+        "px-to-viewport.notify-if-no-changes": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show a warning if no conversion could be made."
+        },
+        "px-to-viewport.number-of-decimals-digits": {
+          "type": "integer",
+          "default": 4,
+          "description":
+            "Maximum number of decimals digits a px or vw can have."
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "extension.pxToVw",
+        "title": "px to vw: Convert px to vw"
+      },
+      {
+        "command": "extension.vwToPx",
+        "title": "vw to px: Convert vw to px"
+      },
+      {
+        "command": "extension.pxToVwAndVwToPx",
+        "title":
+          "px to vw, and vw to px: Converts selected text from px to vw, and vw to px."
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "extension.pxToVwAndVwToPx",
+        "key": "Alt+z"
+      }
+    ]
+  },
+  "scripts": {
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "test": "node ./node_modules/vscode/bin/test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^2.2.42",
+    "@types/node": "^7.0.43",
+    "typescript": "^2.6.1",
+    "vscode": "^1.1.6"
+  }
+}
