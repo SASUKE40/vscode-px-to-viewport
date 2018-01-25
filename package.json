@@ -8,7 +8,7 @@
     "vscode": "^1.19.0"
   },
   "categories": ["Other"],
-  "icon": "./icon.png",
+  "icon": "icon.png",
   "activationEvents": [
     "onCommand:extension.pxToVw",
     "onCommand:extension.vwToPx",
